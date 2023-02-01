@@ -1,10 +1,10 @@
 name: Import release
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
     inputs:
       tag:
-        required: true
+        required: false
         description: A release tag from the iOS repo to import
 
 jobs:
