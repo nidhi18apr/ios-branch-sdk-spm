@@ -20,9 +20,8 @@ Options:
 
     Updates version numbers in files:
 
-        Branch version:     ../Branch-SDK/BNCConfig.m
-        Podspec version:    ../Branch.podspec
-        Framework version:  ../Branch-TestBed/Framework-Info.plist
+        Branch version:     ../BranchSDK/BNCConfig.m
+        Podspec version:    ../BranchSDK.podspec
 
   -M  Print or increment the \`major\` version number.
   -m  Print or increment the \`minor\` version number.
@@ -31,7 +30,8 @@ Options:
 USAGE
 }
 
-version=1.45.2
+version=2.1.0
+prev_version="$version"
 
 if (( $# == 0 )); then
     echo $version
@@ -101,15 +101,18 @@ fi
 if [[ $update ]]; then
 
     # Update the SDK version:
-    sed -i '' -e "/BNC_SDK_VERSION/ {s/\".*\"/\"$version\"/; }" ../Branch-SDK/BNCConfig.m
+    sed -i '' -e "/BNC_SDK_VERSION/ {s/\".*\"/\"$version\"/; }" ../BranchSDK/BNCConfig.m
 
     # Update the Podspec version:
-    sed -i '' -e "/^[[:space:]]*s\.version/ {s/\".*\"/\"$version\"/; }" ../Branch.podspec
+    sed -i '' -e "/^[[:space:]]*s\.version/ {s/\".*\"/\"$version\"/; }" ../BranchSDK.podspec
 
     # Update the Carthage version:
     plutil -replace CFBundleVersion -string "$version"  ../Branch-TestBed/Framework-Info.plist
     plutil -replace CFBundleShortVersionString -string "$version"  ../Branch-TestBed/Framework-Info.plist
-
+  
+    # Update Carthage Project version
+    echo '"$prev_version"'
+    sed -ie 's/MARKETING_VERSION = '"$prev_version"'/MARKETING_VERSION = '"$version"'/g' ../BranchSDK.xcodeproj/project.pbxproj
 fi
 
 
