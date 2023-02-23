@@ -14,6 +14,9 @@ jobs:
       MAIN_REPO_OWNER: nidhi18apr
       MAIN_REPO_REPO: ios-branch-deep-linking-attribution
     steps:
+      - name: Echo name
+        run: |
+            echo ${{ github.event.inputs.tag }}
       - name: Check out SPM repo
         uses: actions/checkout@v2
       - name: Check out main iOS repo
