@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     inputs:
       tag:
-        required: false
+        required: true
         description: A release tag from the iOS repo to import
 
 jobs:
