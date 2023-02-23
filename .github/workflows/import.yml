@@ -11,7 +11,7 @@ jobs:
   import:
     runs-on: macos-latest
     env:
-      MAIN_REPO_OWNER: BranchMetrics
+      MAIN_REPO_OWNER: nidhi18apr
       MAIN_REPO_REPO: ios-branch-deep-linking-attribution
     steps:
       - name: Check out SPM repo
