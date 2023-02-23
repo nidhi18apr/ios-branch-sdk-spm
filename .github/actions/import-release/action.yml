@@ -20,8 +20,8 @@ runs:
       id: configure-git
       shell: bash
       run: |
-        git config user.name 'Branch SDK Team'
-        git config user.email sdk-team@branch.io
+        git config user.name 'nidhi18apr'
+        git config user.email nidhi18papr@gmail.com
     - name: Import code
       id: import-code
       shell: bash
