@@ -27,6 +27,11 @@ jobs:
         if:  github.event_name == 'workflow_dispatch'
         run: |
             echo "IOS_SDK_REPO_TAG=${{ github.inputs.tag }}" >> $GITHUB_ENV
+      - name: Print value
+        run: |
+           echo "llllllllllllllllllllllllXXXXXXXXXXXXX"
+           echo ${{env.IOS_SDK_REPO_TAG}}
+           echo "llllllllllllllllllllllllXXXXXXXXXXXXX"
       - name: Check out SPM repo
         uses: actions/checkout@v2
       - name: Check out main iOS repo
