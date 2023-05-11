@@ -22,7 +22,7 @@ jobs:
       - name: Set tag name varibale for repository_dispatch event type
         if: github.event_name == 'repository_dispatch'
         run: |
-            echo "IOS_SDK_REPO_TAG='${{ github.event.client_payload.tag }}'" >> $GITHUB_ENV
+            echo IOS_SDK_REPO_TAG=${{ github.event.client_payload.tag }} >> $GITHUB_ENV
       - name: Set tag name varibale for workflow_dispatch event type
         if:  github.event_name == 'workflow_dispatch'
         run: |
