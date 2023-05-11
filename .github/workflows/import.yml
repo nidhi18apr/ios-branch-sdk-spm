@@ -7,10 +7,6 @@ on:
         required: true
         description: A release tag from the iOS repo to import
   repository_dispatch:
-    inputs:
-      tag:
-        required: true
-        description: A release tag from the iOS repo to import
 
 jobs:
   import:
